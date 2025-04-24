@@ -1,0 +1,33 @@
+/* Navbar Styles */
+.navbar {
+  background-color: #333;
+  color: #fff;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.navbar a {
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 15px;
+  margin: 0 10px;
+  font-size: 16px;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.navbar a:hover {
+  color: #1ecf9a; /* Hover effect color */
+  transform: scale(1.1); /* Slight zoom effect on hover */
+}
+
+/* Add some space at the top to prevent content from being hidden under the navbar */
+body {
+  margin-top: 60px; /* Adjust based on navbar height */
+}
