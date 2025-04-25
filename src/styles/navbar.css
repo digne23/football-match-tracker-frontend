@@ -1,16 +1,19 @@
 /* Navbar Styles */
+/* Navbar Styles */
 .navbar {
   background-color: #333;
   color: #fff;
   padding: 10px 20px;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start; /* Align items to the left */
   align-items: center;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 1000;
+  overflow-x: auto; /* Enable horizontal scrolling */
+  white-space: nowrap; /* Prevent wrapping of navbar items */
 }
 
 .navbar a {
@@ -30,4 +33,24 @@
 /* Add some space at the top to prevent content from being hidden under the navbar */
 body {
   margin-top: 60px; /* Adjust based on navbar height */
+}
+
+/* For small screens */
+@media (max-width: 767px) {
+  .navbar {
+    flex-direction: row;
+    justify-content: flex-start; /* Align links to the left */
+    padding: 10px 20px;
+  }
+
+  .navbar a {
+    margin: 0 10px;
+    padding: 10px 15px;
+    font-size: 14px; /* Slightly smaller font for mobile */
+  }
+
+  /* Optional: add a scrollbar for touch devices */
+  .navbar {
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on mobile devices */
+  }
 }
