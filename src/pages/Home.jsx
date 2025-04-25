@@ -79,6 +79,9 @@ export default function Home() {
   const upcomingMatches = matches.filter((match) => {
     const matchDate = new Date(match.date);
     return matchDate > new Date();
+
+
+      const topTeams = leaderboard.length > 0 ? leaderboard.slice(0, 3) : [];
   });
 
   return (
