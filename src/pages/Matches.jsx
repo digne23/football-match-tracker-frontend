@@ -42,14 +42,20 @@ useEffect(() => {
       const token = localStorage.getItem("token");
       const headers = { Authorization: `Bearer ${token}` };
 
-      const teamRes = await axios.get("http://localhost:5000/api/teams", {
-        headers,
-      });
+      const teamRes = await axios.get(
+        "https://football-match-tracker-backend-1.onrender.com/api/teams",
+        {
+          headers,
+        }
+      );
       setTeams(teamRes.data);
 
-      const matchRes = await axios.get("http://localhost:5000/api/matches", {
-        headers,
-      });
+      const matchRes = await axios.get(
+        "https://football-match-tracker-backend-1.onrender.com/api/matches",
+        {
+          headers,
+        }
+      );
       setMatches(matchRes.data);
     } catch (err) {
       console.error("Fetching error:", err);
@@ -73,11 +79,11 @@ useEffect(() => {
             alert("login first to create a match")
           }
             const response = await axios.post(
-                "http://localhost:5000/api/matches",
-                 newMatch,
-                {
-                    headers: { Authorization: `Bearer ${token}` },
-                }
+              "https://football-match-tracker-backend-1.onrender.com/api/matches",
+              newMatch,
+              {
+                headers: { Authorization: `Bearer ${token}` },
+              }
             );
 
     setNewMatch({
@@ -87,7 +93,9 @@ useEffect(() => {
             location:""
         });
 
-        const updated = await axios.get("http://localhost:5000/api/matches");
+        const updated = await axios.get(
+          "https://football-match-tracker-backend-1.onrender.com/api/matches"
+        );
           setMatches(updated.data);
           alert("match created sucessfuly")
       
@@ -120,11 +128,14 @@ function toggleResults(matchId) {
   const deleteMatch = async (matchId) => {
     try {
       const token = localStorage.getItem("token"); // or wherever you're storing it
-      await axios.delete(`http://localhost:5000/api/matches/${matchId}`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      await axios.delete(
+        `https://football-match-tracker-backend-1.onrender.com/api/matches/${matchId}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
 
       // Remove from UI
       setMatches((prevMatches) =>

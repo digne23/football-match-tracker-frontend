@@ -20,7 +20,7 @@ export default function Login() {
     e.preventDefault();
     try {
       let response = await axios.post(
-        "http://localhost:5000/api/auth/login",
+        "https://football-match-tracker-backend-1.onrender.com/api/auth/login",
         formData
       );
    

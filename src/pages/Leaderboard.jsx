@@ -9,7 +9,9 @@ export default function Leaderboard() {
   useEffect(() => {
     const fetchLeaderboard = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/leaderboards");
+        const res = await axios.get(
+          "https://football-match-tracker-backend-1.onrender.com/api/leaderboards"
+        );
         setLeaderboard(res.data.leaderboard);
         setTopscorers(res.data.topscorers);
       } catch (err) {

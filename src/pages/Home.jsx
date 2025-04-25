@@ -37,13 +37,13 @@ export default function Home() {
         };
 
         const teamRes = await axios.get(
-          "http://localhost:5000/api/teams",
+          "https://football-match-tracker-backend-1.onrender.com/api/teams",
           config
         );
         setTeams(teamRes.data);
 
         const matchRes = await axios.get(
-          "http://localhost:5000/api/matches",
+          "https://football-match-tracker-backend-1.onrender.com/api/matches",
           config
         );
         setMatches(matchRes.data);

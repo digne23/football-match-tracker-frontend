@@ -30,11 +30,14 @@ export default function Teams() {
   useEffect(() => {
     const fetchTeams = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/api/teams", {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
+        const response = await axios.get(
+          "https://football-match-tracker-backend-1.onrender.com/api/teams",
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
         setTeams(response.data);
         console.log("Fetched  teams:", response.data);
       } catch (err) {
@@ -86,7 +89,7 @@ export default function Teams() {
     try {
       const token = localStorage.getItem("token");
       const response = await axios.post(
-        "http://localhost:5000/api/teams",
+        "https://football-match-tracker-backend-1.onrender.com/api/teams",
         newTeam,
         {
           headers: { Authorization: `Bearer ${token}` },
@@ -110,7 +113,9 @@ export default function Teams() {
         ],
       });
 
-      const updatedTeams = await axios.get("http://localhost:5000/api/teams");
+      const updatedTeams = await axios.get(
+        "https://football-match-tracker-backend-1.onrender.com/api/teams"
+      );
       setTeams(updatedTeams.data);
     } catch (err) {
       console.error(err);
@@ -140,7 +145,7 @@ function toggleTeamPlayers(teamId) {
       const token = localStorage.getItem("token");
 
       await axios.put(
-        `http://localhost:5000/api/teams/${editingTeam._id}`,
+        `https://football-match-tracker-backend-1.onrender.com/api/teams/${editingTeam._id}`,
         editingTeam,
         {
           headers: {
@@ -153,11 +158,14 @@ function toggleTeamPlayers(teamId) {
       setEditingTeam(null);
 
       // Refresh teams
-      const updated = await axios.get("http://localhost:5000/api/teams", {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      const updated = await axios.get(
+        "https://football-match-tracker-backend-1.onrender.com/api/teams",
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
       setTeams(updated.data);
     } catch (err) {
       console.error("Update failed", err);
