@@ -114,7 +114,12 @@ export default function Teams() {
       });
 
       const updatedTeams = await axios.get(
-        `${import.meta.env.VITE_BACKEND_URL}/api/teams`
+        `${import.meta.env.VITE_BACKEND_URL}/api/teams`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
       );
       setTeams(updatedTeams.data);
     } catch (err) {
