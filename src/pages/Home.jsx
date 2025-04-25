@@ -81,8 +81,9 @@ export default function Home() {
     return matchDate > new Date();
 
 
-      const topTeams = leaderboard.length > 0 ? leaderboard.slice(0, 3) : [];
   });
+
+  const topTeams = leaderboard.slice(0, 3);
 
   return (
     <div className="home-container">
