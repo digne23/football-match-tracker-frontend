@@ -20,7 +20,7 @@ export default function Login() {
     e.preventDefault();
     try {
       let response = await axios.post(
-        `${process.env.REACT_APP_API_BASE_URL}/api/auth/login`,
+        `${import.meta.env.VITE_BACKEND_URL}/api/auth/login`,
         formData
       );
    

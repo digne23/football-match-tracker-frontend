@@ -18,13 +18,18 @@ export default function Register() {
   async function handleSubmit(e) {
     e.preventDefault()
     try {
+
+      // console.log("Backend url :", import.meta.env.VITE_BACKEND_URL);
+
       let response = await axios.post(
-        `${process.env.REACT_APP_API_BASE_URL}/api/auth/register`,
+        `${import.meta.env.VITE_BACKEND_URL}/api/auth/register`,
         formData
       );
       alert("registration sucessful")
       navigate("/login")
     } catch (err) {
+      console.log("Error: ", err);
+
       alert(err?.response?.data.message || "registration failed")
     }
   }

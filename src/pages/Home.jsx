@@ -37,13 +37,13 @@ export default function Home() {
         };
 
         const teamRes = await axios.get(
-          `${process.env.REACT_APP_API_BASE_URL}/api/teams`,
+          `${import.meta.env.VITE_BACKEND_URL}/api/teams`,
           config
         );
         setTeams(teamRes.data);
 
         const matchRes = await axios.get(
-          `${process.env.REACT_APP_API_BASE_URL}/api/matches`,
+          `${import.meta.env.VITE_BACKEND_URL}/api/matches`,
           config
         );
         setMatches(matchRes.data);

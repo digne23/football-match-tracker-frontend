@@ -31,7 +31,7 @@ export default function Teams() {
     const fetchTeams = async () => {
       try {
         const response = await axios.get(
-          `${process.env.REACT_APP_API_BASE_URL}/api/teams`,
+          `${import.meta.env.VITE_BACKEND_URL}/api/teams`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -89,7 +89,7 @@ export default function Teams() {
     try {
       const token = localStorage.getItem("token");
       const response = await axios.post(
-        `${process.env.REACT_APP_API_BASE_URL}/api/teams`,
+        `${import.meta.env.VITE_BACKEND_URL}/api/teams`,
         newTeam,
         {
           headers: { Authorization: `Bearer ${token}` },
@@ -114,7 +114,7 @@ export default function Teams() {
       });
 
       const updatedTeams = await axios.get(
-        `${process.env.REACT_APP_API_BASE_URL}/api/teams`
+        `${import.meta.env.VITE_BACKEND_URL}/api/teams`
       );
       setTeams(updatedTeams.data);
     } catch (err) {
@@ -145,7 +145,7 @@ function toggleTeamPlayers(teamId) {
       const token = localStorage.getItem("token");
 
       await axios.put(
-        `${process.env.REACT_APP_API_BASE_URL}/${editingTeam._id}`,
+        `${import.meta.env.VITE_BACKEND_URL}/${editingTeam._id}`,
         editingTeam,
         {
           headers: {
@@ -158,14 +158,11 @@ function toggleTeamPlayers(teamId) {
       setEditingTeam(null);
 
       // Refresh teams
-      const updated = await axios.get(
-        `${process.env.REACT_APP_API_BASE_URL}/api/teams`,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
+      const updated = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/teams`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
       setTeams(updated.data);
     } catch (err) {
       console.error("Update failed", err);
