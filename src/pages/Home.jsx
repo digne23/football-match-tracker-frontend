@@ -103,7 +103,7 @@ export default function Home() {
           <p>Total Teams</p>
         </div>
         <div className="stat-card">
-          <h2></h2>
+          <h2>some</h2>
           <p>scheduled matches </p>
         </div>
         <div className="stat-card">
