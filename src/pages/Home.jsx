@@ -118,21 +118,11 @@ export default function Home() {
 
       <section className="leaderboard-highlight">
         <h2>Leaderboard Highlights 🏆</h2>
-        <h2>Leaderboard Highlights 🏆</h2>
-        {leaderboard.length === 0 ? (
-          <p>No leaderboard data available.</p>
-        ) : (
-          <ul>
-            {leaderboard.slice(0, 3).map((team, index) => (
-              <li key={team.teamId}>
-                {index === 0 && "🥇"}
-                {index === 1 && "🥈"}
-                {index === 2 && "🥉"}
-                {` Team ${team.name} – ${team.points} pts`}
-              </li>
-            ))}
-          </ul>
-        )}
+        <ul>
+          <li>🥇Team bayern - 3 pts</li>
+          <li>🥈Team arsenal - 3 pts</li>
+          <li>🥉Team barcelona - 3 pts</li>
+        </ul>
       </section>
 
       <section className="cta-buttons">
