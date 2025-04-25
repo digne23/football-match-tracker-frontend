@@ -91,7 +91,7 @@ export default function Home() {
           <p>Total Teams</p>
         </div>
         <div className="stat-card">
-          <h2>12</h2>
+          <h2>{totalMatchesPlayed}</h2>
           <p>Matches Played </p>
         </div>
         <div className="stat-card">
@@ -118,11 +118,21 @@ export default function Home() {
 
       <section className="leaderboard-highlight">
         <h2>Leaderboard Highlights 🏆</h2>
-        <ul>
-          <li>🥇Team bayern - 3 pts</li>
-          <li>🥈Team arsenal - 3 pts</li>
-          <li>🥉Team barcelona - 3 pts</li>
-        </ul>
+        {leaderboard.length === 0 ? (
+          <p>No leaderboard data available.</p>
+        ) : (
+          <ul>
+            {leaderboard.slice(0, 3).map((entry, index) => (
+              <li key={entry.team}>
+                {index === 0 && "🥇"}
+                {index === 1 && "🥈"}
+                {index === 2 && "🥉"}
+                {index > 2 && `${index + 1}. `}
+                Team {entry.team} – {entry.points} pts
+              </li>
+            ))}
+          </ul>
+        )}
       </section>
 
       <section className="cta-buttons">
