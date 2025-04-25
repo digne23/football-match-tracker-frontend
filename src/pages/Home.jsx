@@ -7,6 +7,7 @@ export default function Home() {
   const [username, setUsername] = useState("Football Fan");
   const [teams, setTeams] = useState([]);
   const [matches, setMatches] = useState([]);
+   const [leaderboard, setLeaderboard] = useState([]);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -47,6 +48,13 @@ export default function Home() {
           config
         );
         setMatches(matchRes.data);
+
+
+         const leaderboardRes = await axios.get(
+           `${import.meta.env.VITE_BACKEND_URL}/api/leaderboards`,
+           config
+         );
+         setLeaderboard(leaderboardRes.data.leaderboard);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -118,25 +126,19 @@ export default function Home() {
 
       <section className="leaderboard-highlight">
         <h2>Leaderboard Highlights 🏆</h2>
-        <h2>Leaderboard Highlights 🏆</h2>
-        <ul>
-          {top3Teams.length === 0 ? (
-            <li>No teams available.</li>
-          ) : (
-            top3Teams.map((team, index) => (
+        {topTeams.length > 0 ? (
+          <ul>
+            {topTeams.map((team, index) => (
               <li key={team.teamId}>
-                {index === 0
-                  ? "🥇"
-                  : index === 1
-                  ? "🥈"
-                  : index === 2
-                  ? "🥉"
-                  : ""}
-                {team.name} - {team.points} pts
+                {`${index === 0 ? "🥇" : index === 1 ? "🥈" : "🥉"} ${
+                  team.name
+                } - ${team.points} pts`}
               </li>
-            ))
-          )}
-        </ul>
+            ))}
+          </ul>
+        ) : (
+          <p>No teams in the leaderboard yet.</p>
+        )}
       </section>
 
       <section className="cta-buttons">
