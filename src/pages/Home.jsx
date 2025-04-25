@@ -118,17 +118,17 @@ export default function Home() {
 
       <section className="leaderboard-highlight">
         <h2>Leaderboard Highlights 🏆</h2>
+        <h2>Leaderboard Highlights 🏆</h2>
         {leaderboard.length === 0 ? (
           <p>No leaderboard data available.</p>
         ) : (
           <ul>
-            {leaderboard.slice(0, 3).map((entry, index) => (
-              <li key={entry.team}>
+            {leaderboard.slice(0, 3).map((team, index) => (
+              <li key={team.teamId}>
                 {index === 0 && "🥇"}
                 {index === 1 && "🥈"}
                 {index === 2 && "🥉"}
-                {index > 2 && `${index + 1}. `}
-                Team {entry.team} – {entry.points} pts
+                {` Team ${team.name} – ${team.points} pts`}
               </li>
             ))}
           </ul>
