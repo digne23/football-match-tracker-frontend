@@ -5,15 +5,13 @@
   color: #fff;
   padding: 10px 20px;
   display: flex;
-  justify-content: flex-start; /* Align items to the left */
+  justify-content: space-between;
   align-items: center;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 1000;
-  overflow-x: auto; /* Enable horizontal scrolling */
-  white-space: nowrap; /* Prevent wrapping of navbar items */
 }
 
 .navbar a {
@@ -38,19 +36,37 @@ body {
 /* For small screens */
 @media (max-width: 767px) {
   .navbar {
-    flex-direction: row;
-    justify-content: flex-start; /* Align links to the left */
-    padding: 10px 20px;
+    flex-direction: column;
+    align-items: flex-start;
   }
 
   .navbar a {
-    margin: 0 10px;
-    padding: 10px 15px;
-    font-size: 14px; /* Slightly smaller font for mobile */
+    margin: 10px 0;
+    padding: 10px 20px;
   }
 
-  /* Optional: add a scrollbar for touch devices */
-  .navbar {
-    -webkit-overflow-scrolling: touch; /* Smooth scrolling on mobile devices */
+  /* Hide the links by default on mobile */
+  .navbar-links {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    text-align: left;
+  }
+
+  .navbar-links.open {
+    display: flex;
+  }
+
+  /* Hamburger menu (icon) styling */
+  .hamburger {
+    display: block;
+    cursor: pointer;
+    font-size: 24px;
+  }
+}
+
+@media (min-width: 768px) {
+  .hamburger {
+    display: none; /* Hide hamburger icon on larger screens */
   }
 }
