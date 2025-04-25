@@ -1,5 +1,5 @@
 .home-container {
-  margin-top: 35em;
+  margin-top:1rem;
   padding: 2rem;
   font-family: 'Segoe UI', sans-serif;
   color: #333;
@@ -26,7 +26,7 @@
 }
 
 .stat-card {
-  background-color: #4ac1d6;
+  background-color: #a7a7b4;
   padding: 1.5rem;
   border-radius: 0.8rem;
   text-align: center;
@@ -83,4 +83,9 @@
 
 .cta-buttons button:hover {
   background-color: #005ac1;
+}
+
+h1{
+  color:#eef6fc;
+  
 }

@@ -1,12 +1,11 @@
-
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Navbar from './components/Navbar'
+import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
-import Login from "./pages/login";
+import Login from "./pages/Login";
 import Register from "./pages/Register";
-import Teams from "./pages/Teams"
-import Matches from "./pages/Matches"
-import Leaderboard from "./pages/Leaderboard"
+import Teams from "./pages/Teams";
+import Matches from "./pages/Matches";
+import Leaderboard from "./pages/Leaderboard";
 export default function App() {
   return (
     <Router>

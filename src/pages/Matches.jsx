@@ -88,10 +88,11 @@ useEffect(() => {
         });
 
         const updated = await axios.get("http://localhost:5000/api/matches");
-        setMatches(updated.data);
+          setMatches(updated.data);
+          alert("match created sucessfuly")
       
     } catch (err) {
-      alert(err.response?.data?.message || "match creation failed");
+      //alert(err.response?.data?.message || "match creation failed");
     }
     }
     

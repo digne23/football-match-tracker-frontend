@@ -75,6 +75,9 @@ export default function Home() {
 
   return (
     <div className="home-container">
+      <h1 className="text-4xl font-bold text-center my-6 text-blue-600">
+        Football Match Tracker
+      </h1>
       <header className="hero-section">
         <h1>Welcome back, {username}! ⚽</h1>
         <p className="tagline">
@@ -88,7 +91,7 @@ export default function Home() {
           <p>Total Teams</p>
         </div>
         <div className="stat-card">
-          <h2>{totalMatchesPlayed}2</h2>
+          <h2>12</h2>
           <p>Matches Played </p>
         </div>
         <div className="stat-card">
@@ -116,9 +119,9 @@ export default function Home() {
       <section className="leaderboard-highlight">
         <h2>Leaderboard Highlights 🏆</h2>
         <ul>
-          <li>Team Madrid - 34 pts</li>
-          <li>Team Barcelona - 31 pts</li>
-          <li>Team Chelsea - 29 pts</li>
+          <li>🥇Team bayern - 3 pts</li>
+          <li>🥈Team arsenal - 3 pts</li>
+          <li>🥉Team barcelona - 3 pts</li>
         </ul>
       </section>
 
