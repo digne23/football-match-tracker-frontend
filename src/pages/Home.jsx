@@ -91,7 +91,7 @@ export default function Home() {
           <p>Total Teams</p>
         </div>
         <div className="stat-card">
-          <h2>{totalMatchesPlayed}</h2>
+          <h2>12</h2>
           <p>Matches Played </p>
         </div>
         <div className="stat-card">
@@ -118,10 +118,24 @@ export default function Home() {
 
       <section className="leaderboard-highlight">
         <h2>Leaderboard Highlights 🏆</h2>
+        <h2>Leaderboard Highlights 🏆</h2>
         <ul>
-          <li>🥇Team bayern - 3 pts</li>
-          <li>🥈Team arsenal - 3 pts</li>
-          <li>🥉Team barcelona - 3 pts</li>
+          {top3Teams.length === 0 ? (
+            <li>No teams available.</li>
+          ) : (
+            top3Teams.map((team, index) => (
+              <li key={team.teamId}>
+                {index === 0
+                  ? "🥇"
+                  : index === 1
+                  ? "🥈"
+                  : index === 2
+                  ? "🥉"
+                  : ""}
+                {team.name} - {team.points} pts
+              </li>
+            ))
+          )}
         </ul>
       </section>
 
