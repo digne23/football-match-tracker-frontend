@@ -102,10 +102,10 @@ export default function Home() {
           <h2>{totalTeams}</h2>
           <p>Total Teams</p>
         </div>
-        <div className="stat-card">
+        {/*<div className="stat-card">
           <h2>12</h2>
           <p>Matches Played </p>
-        </div>
+        </div>*/}
         <div className="stat-card">
           <h2>{totalPlayers}</h2>
           <p>Players Registered</p>
