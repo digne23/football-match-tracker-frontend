@@ -10,7 +10,7 @@ export default function Leaderboard() {
     const fetchLeaderboard = async () => {
       try {
         const res = await axios.get(
-          "https://football-match-tracker-backend-1.onrender.com/api/leaderboards"
+          `${process.env.REACT_APP_API_BASE_URL}/api/leaderboards`
         );
         setLeaderboard(res.data.leaderboard);
         setTopscorers(res.data.topscorers);

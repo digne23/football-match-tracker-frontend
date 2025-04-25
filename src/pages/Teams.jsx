@@ -31,7 +31,7 @@ export default function Teams() {
     const fetchTeams = async () => {
       try {
         const response = await axios.get(
-          "https://football-match-tracker-backend-1.onrender.com/api/teams",
+          `${process.env.REACT_APP_API_BASE_URL}/api/teams`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -89,7 +89,7 @@ export default function Teams() {
     try {
       const token = localStorage.getItem("token");
       const response = await axios.post(
-        "https://football-match-tracker-backend-1.onrender.com/api/teams",
+        `${process.env.REACT_APP_API_BASE_URL}/api/teams`,
         newTeam,
         {
           headers: { Authorization: `Bearer ${token}` },
@@ -114,7 +114,7 @@ export default function Teams() {
       });
 
       const updatedTeams = await axios.get(
-        "https://football-match-tracker-backend-1.onrender.com/api/teams"
+        `${process.env.REACT_APP_API_BASE_URL}/api/teams`
       );
       setTeams(updatedTeams.data);
     } catch (err) {
@@ -145,7 +145,7 @@ function toggleTeamPlayers(teamId) {
       const token = localStorage.getItem("token");
 
       await axios.put(
-        `https://football-match-tracker-backend-1.onrender.com/api/teams/${editingTeam._id}`,
+        `${process.env.REACT_APP_API_BASE_URL}/${editingTeam._id}`,
         editingTeam,
         {
           headers: {
@@ -159,7 +159,7 @@ function toggleTeamPlayers(teamId) {
 
       // Refresh teams
       const updated = await axios.get(
-        "https://football-match-tracker-backend-1.onrender.com/api/teams",
+        `${process.env.REACT_APP_API_BASE_URL}/api/teams`,
         {
           headers: {
             Authorization: `Bearer ${token}`,

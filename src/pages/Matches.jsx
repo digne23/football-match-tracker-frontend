@@ -43,7 +43,7 @@ useEffect(() => {
       const headers = { Authorization: `Bearer ${token}` };
 
       const teamRes = await axios.get(
-        "https://football-match-tracker-backend-1.onrender.com/api/teams",
+        `${process.env.REACT_APP_API_BASE_URL}/api/teams`,
         {
           headers,
         }
@@ -51,7 +51,7 @@ useEffect(() => {
       setTeams(teamRes.data);
 
       const matchRes = await axios.get(
-        "https://football-match-tracker-backend-1.onrender.com/api/matches",
+        `${process.env.REACT_APP_API_BASE_URL}/api/matches`,
         {
           headers,
         }
@@ -79,7 +79,7 @@ useEffect(() => {
             alert("login first to create a match")
           }
             const response = await axios.post(
-              "https://football-match-tracker-backend-1.onrender.com/api/matches",
+              `${process.env.REACT_APP_API_BASE_URL}/api/matches`,
               newMatch,
               {
                 headers: { Authorization: `Bearer ${token}` },
@@ -94,7 +94,7 @@ useEffect(() => {
         });
 
         const updated = await axios.get(
-          "https://football-match-tracker-backend-1.onrender.com/api/matches"
+          `${process.env.REACT_APP_API_BASE_URL}/api/matches`
         );
           setMatches(updated.data);
           alert("match created sucessfuly")
@@ -129,7 +129,7 @@ function toggleResults(matchId) {
     try {
       const token = localStorage.getItem("token"); // or wherever you're storing it
       await axios.delete(
-        `https://football-match-tracker-backend-1.onrender.com/api/matches/${matchId}`,
+        `${process.env.REACT_APP_API_BASE_URL}/api/matches/${matchId}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,

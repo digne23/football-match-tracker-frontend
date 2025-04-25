@@ -19,7 +19,7 @@ export default function Register() {
     e.preventDefault()
     try {
       let response = await axios.post(
-        "https://football-match-tracker-backend-1.onrender.com/api/auth/register",
+        `${process.env.REACT_APP_API_BASE_URL}/api/auth/register`,
         formData
       );
       alert("registration sucessful")
